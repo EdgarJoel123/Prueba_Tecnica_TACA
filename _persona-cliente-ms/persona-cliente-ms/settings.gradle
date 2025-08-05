@@ -1,1 +1,6 @@
 rootProject.name = 'persona-cliente-ms'
+include 'persona-cliente-ms-client'
+include 'persona-cliente-ms-core'
+include 'persona-cliente-ms-services'
+include 'persona-cliente-ms-vo'
+
