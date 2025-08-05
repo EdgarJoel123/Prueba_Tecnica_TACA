@@ -1,0 +1,43 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /personCustomer
+
+springdoc:
+  api-docs:
+    path: /openapi
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/prueba_tecnica
+    username: postgres
+    password: 141124
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 10000
+      maxLifetime: 120000
+      maximumPoolSize: 20
+      connectionTestQuery: SELECT 1
+      minimumIdle: 10
+      data-source-properties: stringtype=unspecified
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  jackson:
+    time-zone: America/Guayaquil
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+      hibernate: ERROR
