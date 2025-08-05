@@ -46,7 +46,6 @@ subprojects {
 	dependencyManagement {
 		imports {
 			mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
-			mavenBom "org.keycloak.bom:keycloak-adapter-bom:${keycloakVersion}"
 		}
 	}
 
@@ -68,7 +67,5 @@ subprojects {
 		compileOnly "org.projectlombok:lombok"
 		annotationProcessor "org.projectlombok:lombok"
 
-		// Security
-		implementation "org.keycloak:keycloak-spring-boot-starter"
 	}
 }

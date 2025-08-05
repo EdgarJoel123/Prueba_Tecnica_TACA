@@ -47,12 +47,6 @@ dependencies {
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'com.lowagie:itext:2.1.7'
 
-    // Keycloak
-    implementation 'org.keycloak:keycloak-admin-client:20.0.2'
-
-    // AWS S3
-    implementation 'com.amazonaws:aws-java-sdk:1.11.486'
-
     // GSON
     implementation 'com.google.code.gson:gson:2.10.1'
 

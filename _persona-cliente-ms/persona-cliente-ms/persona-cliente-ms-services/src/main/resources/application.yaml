@@ -10,7 +10,7 @@ springdoc:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/prueba_tecnica
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: 141124
     hikari:
