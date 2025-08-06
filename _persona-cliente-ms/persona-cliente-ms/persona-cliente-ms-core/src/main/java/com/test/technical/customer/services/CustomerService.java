@@ -93,45 +93,39 @@ public class CustomerService extends BaseService<CustomerEntity, ICustomerReposi
     }
 
     @Override
-    public CustomerResponse update(CustomerUpdateDTO customerUpdateDTO) {
+    public CustomerResponse update(CustomerUpdateDTO request) {
         try {
-            // 1. Buscar el cliente
-            Optional<CustomerEntity> optionalCustomer = repository.findById(customerUpdateDTO.getCustomerID());
-            if (optionalCustomer.isEmpty()) {
-                throw new RuntimeException("Cliente no encontrado con ID: " + customerUpdateDTO.getCustomerID());
-            }
-            CustomerEntity customerEntity = optionalCustomer.get();
+            // 1. Buscar cliente existente
+            CustomerEntity customer = repository.findById(request.getCustomerID())
+                    .orElseThrow(() -> new RuntimeException("Cliente no encontrado con ID: " + request.getCustomerID()));
 
-            // 2. Buscar la persona relacionada
-            Optional<PersonEntity> optionalPerson = personRepository.findById(customerEntity.getPerson_id());
-            if (optionalPerson.isEmpty()) {
-                throw new RuntimeException("Persona no encontrada con ID: " + customerEntity.getPerson_id());
-            }
-            PersonEntity personEntity = optionalPerson.get();
+            // 2. Buscar persona asociada
+            PersonEntity person = personRepository.findById(customer.getPerson_id())
+                    .orElseThrow(() -> new RuntimeException("Persona no encontrada con ID: " + customer.getPerson_id()));
 
-            // 3. Actualizar todos los campos de persona
-            personEntity.setName(customerUpdateDTO.getName());
-            personEntity.setGender(customerUpdateDTO.getGender());
-            personEntity.setAge(customerUpdateDTO.getAge());
-            personEntity.setCi(customerUpdateDTO.getCi());
-            personEntity.setAddress(customerUpdateDTO.getAddress());
-            personEntity.setPhone(customerUpdateDTO.getPhone());
+            // 3. Actualizar campos de persona solo si vienen con valor
+            if (request.getName() != null) person.setName(request.getName());
+            if (request.getGender() != null) person.setGender(request.getGender());
+            if (request.getAge() != null) person.setAge(request.getAge());
+            if (request.getCi() != null) person.setCi(request.getCi());
+            if (request.getAddress() != null) person.setAddress(request.getAddress());
+            if (request.getPhone() != null) person.setPhone(request.getPhone());
 
-            // 4. Actualizar campos del cliente
-            customerEntity.setStatus(customerUpdateDTO.getStatus());
+            // 4. Actualizar campos del cliente solo si vienen con valor
+            if (request.getStatus() != null) customer.setStatus(request.getStatus());
 
-            // 5. Guardar ambas entidades
-            personRepository.save(personEntity);    // actualiza o hace merge
-            repository.save(customerEntity);        // actualiza o hace merge
+            // 5. Guardar cambios
+            personRepository.save(person);
+            repository.save(customer);
 
-            // 6. Construir y devolver respuesta
-            return getCustomerResponse(customerEntity);
-
+            // 6. Devolver respuesta
+            return getCustomerResponse(customer);
         } catch (Exception e) {
-            log.error("Error al actualizar el cliente con ID: {}", customerUpdateDTO.getCustomerID(), e);
+            log.error("Error al actualizar el cliente con ID {}: {}", request.getCustomerID(), e.getMessage(), e);
             throw new RuntimeException("Error al actualizar el cliente: " + e.getMessage(), e);
         }
     }
+
 
     @Override
     public void delete(Long customerID) {

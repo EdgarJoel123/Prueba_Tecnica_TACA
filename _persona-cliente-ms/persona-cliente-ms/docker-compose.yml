@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_persona_cliente
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 141124
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+
+  persona-cliente-ms:
+    build:
+      context: ./persona-cliente-ms-services
+      dockerfile: Dockerfile
+    container_name: persona_cliente_app
+    depends_on:
+      - postgres
+    ports:
+      - "8089:8089"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 141124
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:

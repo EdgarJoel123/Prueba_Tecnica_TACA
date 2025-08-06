@@ -79,6 +79,10 @@ Ejemplo:
 Using generated security password: c0f65300-9261-4239-bff1-b09857937efa
 Accede en: http://localhost:8089/personCustomer/login
 
+Opcion 3 con docker:
+./gradlew :persona-cliente-ms-services:clean :persona-cliente-ms-services:build
+
+
 📄 Documentación API
 Si configuraste springdoc-openapi, puedes acceder a la documentación en:
 http://localhost:8089/personCustomer/openapi

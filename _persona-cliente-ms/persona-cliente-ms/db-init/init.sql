@@ -17,10 +17,17 @@
 
 
 -- ----------------------------
+-- Create schema if not exists
+-- ----------------------------
+CREATE SCHEMA IF NOT EXISTS "prueba_tecnica";
+SET search_path TO "prueba_tecnica";
+
+
+-- ----------------------------
 -- Sequence structure for scsegt_account_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "prueba_tecnica"."scsegt_account_seq";
-CREATE SEQUENCE "prueba_tecnica"."scsegt_account_seq" 
+CREATE SEQUENCE "prueba_tecnica"."scsegt_account_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -31,7 +38,7 @@ CACHE 1;
 -- Sequence structure for scsegt_customer_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "prueba_tecnica"."scsegt_customer_seq";
-CREATE SEQUENCE "prueba_tecnica"."scsegt_customer_seq" 
+CREATE SEQUENCE "prueba_tecnica"."scsegt_customer_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -42,7 +49,7 @@ CACHE 1;
 -- Sequence structure for scsegt_movement_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "prueba_tecnica"."scsegt_movement_seq";
-CREATE SEQUENCE "prueba_tecnica"."scsegt_movement_seq" 
+CREATE SEQUENCE "prueba_tecnica"."scsegt_movement_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
@@ -53,7 +60,7 @@ CACHE 1;
 -- Sequence structure for scsegt_persona_seq
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "prueba_tecnica"."scsegt_persona_seq";
-CREATE SEQUENCE "prueba_tecnica"."scsegt_persona_seq" 
+CREATE SEQUENCE "prueba_tecnica"."scsegt_persona_seq"
 INCREMENT 1
 MINVALUE  1
 MAXVALUE 9223372036854775807
