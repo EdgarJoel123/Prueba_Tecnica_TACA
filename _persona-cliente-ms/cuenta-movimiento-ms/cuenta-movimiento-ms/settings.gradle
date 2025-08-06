@@ -1,1 +1,4 @@
 rootProject.name = 'cuenta-movimiento-ms'
+include 'cuenta-movimiento-ms-client'
+include 'cuenta-movimiento-ms-client'
+

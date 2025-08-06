@@ -1,52 +1,71 @@
-plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.5.4'
-	id 'io.spring.dependency-management' version '1.1.7'
-	id 'org.asciidoctor.jvm.convert' version '3.3.2'
-}
+// build.gradle - Versión corregida
+apply from: rootProject.file('versions.gradle')  // Carga primero las versiones
 
-group = 'com.test.technical.'
-version = '0.0.1-SNAPSHOT'
+buildscript {
+	apply from: rootProject.file('versions.gradle')  // Mover aquí adentro
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
+	repositories {
+		mavenCentral()
+		maven { url "https://plugins.gradle.org/m2/" }
+	}
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+		classpath "io.spring.gradle:dependency-management-plugin:${springDependencyManagementVersion}"
 	}
 }
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
+
+
+// Resto de tu configuración actual (allprojects/subprojects)...
+
+allprojects {
+	group = "com.prueba.tecnica"
+	version = "${baseVersion}"
+}
+
+subprojects {
+	apply plugin: "java"
+	apply plugin: "java-library"
+	apply plugin: "org.springframework.boot"
+	apply plugin: "io.spring.dependency-management"
+
+	java {
+		sourceCompatibility = JavaVersion.VERSION_11
+		targetCompatibility = JavaVersion.VERSION_11
 	}
-}
 
-repositories {
-	mavenCentral()
-}
+	compileJava {
+		options.encoding = 'UTF-8'
+		options.compilerArgs << '-parameters'
+	}
 
-ext {
-	set('snippetsDir', file("build/generated-snippets"))
-}
+	repositories {
+		mavenCentral()
+	}
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+		}
+	}
 
-tasks.named('test') {
-	outputs.dir snippetsDir
-	useJUnitPlatform()
-}
+	// Configuración común para todos los subproyectos
+	dependencies {
+		// Spring
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-tasks.named('asciidoctor') {
-	inputs.dir snippetsDir
-	dependsOn test
+		// Database
+		implementation "org.postgresql:postgresql"
+		implementation "org.hibernate:hibernate-core"
+
+		// QueryDSL
+		implementation "com.querydsl:querydsl-jpa"
+		annotationProcessor "com.querydsl:querydsl-apt"
+
+		// Lombok
+		compileOnly "org.projectlombok:lombok"
+		annotationProcessor "org.projectlombok:lombok"
+
+	}
 }
