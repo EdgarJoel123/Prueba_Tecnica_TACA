@@ -15,5 +15,5 @@ public interface ICustomService {
     CustomerResponse create(CustomerCreateDTO customerCreateDTO);
     CustomerResponse update(CustomerUpdateDTO customerUpdateDTO);
     void delete(Long customerID);
-    CustomerResponse getAnnexedResponse(CustomerEntity customerEntity);
+    CustomerResponse getCustomerResponse(CustomerEntity customerEntity);
 }

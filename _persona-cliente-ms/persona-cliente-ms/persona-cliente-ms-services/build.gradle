@@ -39,6 +39,15 @@ dependencies {
 
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+    implementation project(':persona-cliente-ms-vo') // o el módulo correcto
+
+    implementation project(':persona-cliente-ms-client') // o el módulo correcto
+
+    implementation project(':persona-cliente-ms-core') // o el módulo correcto
+
+
 }
 
 test {

@@ -1,0 +1,109 @@
+2025-08-05 18:45:11 [main] INFO  com.test.technical.BaseApplication - Starting BaseApplication using Java 11.0.22 on LAPTOP-DDGP2G6J with PID 9780 (D:\Prueba_Taca\Prueba_Tecnica_TACA\_persona-cliente-ms\persona-cliente-ms\persona-cliente-ms-services\build\classes\java\main started by Desarrollo SIXSTAR in D:\Prueba_Taca\Prueba_Tecnica_TACA\_persona-cliente-ms\persona-cliente-ms\persona-cliente-ms-services)
+2025-08-05 18:45:11 [main] INFO  com.test.technical.BaseApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-05 18:45:11 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-05 18:45:11 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 0 JPA repository interfaces.
+2025-08-05 18:45:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2025-08-05 18:45:12 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-05 18:45:12 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-08-05 18:45:12 [main] INFO  o.a.c.c.C.[.[.[/personCustomer] - Initializing Spring embedded WebApplicationContext
+2025-08-05 18:45:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1700 ms
+2025-08-05 18:45:13 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-05 18:45:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-08-05 18:45:13 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-08-05 18:45:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-05 18:45:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-05 18:45:13 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2025-08-05 18:45:14 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [prueba_tecnica.pt_customer]
+2025-08-05 18:45:14 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [prueba_tecnica.pt_customer]
+2025-08-05 18:45:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-05 18:45:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-05 18:45:14 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-08-05 18:45:14 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2025-08-05 18:45:14 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [prueba_tecnica.pt_customer]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1168)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:919)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.test.technical.BaseApplication.main(BaseApplication.java:18)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [prueba_tecnica.pt_customer]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 16 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [prueba_tecnica.pt_customer]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:129)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:76)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:204)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+2025-08-05 18:49:52 [main] INFO  com.test.technical.BaseApplication - Starting BaseApplication using Java 11.0.22 on LAPTOP-DDGP2G6J with PID 19776 (D:\Prueba_Taca\Prueba_Tecnica_TACA\_persona-cliente-ms\persona-cliente-ms\persona-cliente-ms-services\build\classes\java\main started by Desarrollo SIXSTAR in D:\Prueba_Taca\Prueba_Tecnica_TACA\_persona-cliente-ms\persona-cliente-ms\persona-cliente-ms-services)
+2025-08-05 18:49:52 [main] INFO  com.test.technical.BaseApplication - No active profile set, falling back to 1 default profile: "default"
+2025-08-05 18:49:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-05 18:49:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+2025-08-05 18:49:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8089 (http)
+2025-08-05 18:49:54 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-05 18:49:54 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-08-05 18:49:54 [main] INFO  o.a.c.c.C.[.[.[/personCustomer] - Initializing Spring embedded WebApplicationContext
+2025-08-05 18:49:54 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1657 ms
+2025-08-05 18:49:54 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-05 18:49:54 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-08-05 18:49:54 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-08-05 18:49:54 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-05 18:49:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-05 18:49:55 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2025-08-05 18:49:55 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-08-05 18:49:55 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-05 18:49:55 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 59b472b1-92c7-480e-a0ec-197045a6c45a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-08-05 18:49:55 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6d946eee, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23dc70c1, org.springframework.security.web.context.SecurityContextPersistenceFilter@4a1934e2, org.springframework.security.web.header.HeaderWriterFilter@7d4bdbd8, org.springframework.security.web.authentication.logout.LogoutFilter@165454f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68a94e58, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@49741274, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53b907d9, org.springframework.security.web.session.SessionManagementFilter@7b7b1448, org.springframework.security.web.access.ExceptionTranslationFilter@217c6a1e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2cbc2db2]
+2025-08-05 18:49:55 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-05 18:49:56 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-08-05 18:49:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8089 (http) with context path '/personCustomer'
+2025-08-05 18:49:56 [main] INFO  com.test.technical.BaseApplication - Started BaseApplication in 4.231 seconds (JVM running for 4.595)
+2025-08-05 18:50:22 [http-nio-8089-exec-1] INFO  o.a.c.c.C.[.[.[/personCustomer] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-05 18:50:22 [http-nio-8089-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-05 18:50:22 [http-nio-8089-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2025-08-05 18:50:24 [http-nio-8089-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 408 ms
+2025-08-05 18:50:29 [http-nio-8089-exec-5] DEBUG org.hibernate.SQL - select nextval ('prueba_tecnica.scsegt_persona_seq')
+2025-08-05 18:50:29 [http-nio-8089-exec-5] DEBUG org.hibernate.SQL - select nextval ('prueba_tecnica.scsegt_customer_seq')
+2025-08-05 18:50:29 [http-nio-8089-exec-5] DEBUG org.hibernate.SQL - insert into prueba_tecnica.pt_person (address, age, ci, gender, name, phone, id_person) values (?, ?, ?, ?, ?, ?, ?)
+2025-08-05 18:50:29 [http-nio-8089-exec-5] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [ambato]
+2025-08-05 18:50:29 [http-nio-8089-exec-5] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [INTEGER] - [10]
+2025-08-05 18:50:29 [http-nio-8089-exec-5] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [1850201169]
+2025-08-05 18:50:29 [http-nio-8089-exec-5] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [sanchez]
+2025-08-05 18:50:29 [http-nio-8089-exec-5] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [edgar]
+2025-08-05 18:50:29 [http-nio-8089-exec-5] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [6] as [VARCHAR] - [0989353272]
+2025-08-05 18:50:29 [http-nio-8089-exec-5] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [7] as [BIGINT] - [10]
+2025-08-05 18:50:29 [http-nio-8089-exec-5] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 42703
+2025-08-05 18:50:29 [http-nio-8089-exec-5] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ERROR: no existe la columna «name» en la relación «pt_person»
+  Position: 65
+2025-08-05 18:50:29 [http-nio-8089-exec-5] INFO  o.h.e.j.b.internal.AbstractBatchImpl - HHH000010: On release of batch it still contained JDBC statements

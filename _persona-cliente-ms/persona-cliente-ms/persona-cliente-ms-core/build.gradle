@@ -54,6 +54,10 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
     testImplementation 'org.mockito:mockito-junit-jupiter:5.1.1'
+
+    implementation project(':persona-cliente-ms-vo') // o el módulo correcto
+
+    implementation project(':persona-cliente-ms-client') // o el módulo correcto
 }
 
 test {

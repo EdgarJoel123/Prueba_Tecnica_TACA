@@ -1,5 +1,6 @@
 package com.test.technical.customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,12 +30,12 @@ public class CustomerCreateDTO {
     @NotNull(message = "Person is required")
     private String phone;
 
-    @NotNull(message = "Person is required")
+    @JsonIgnore
     private Long personID;
-    @NotNull(message = "status is required")
+    @JsonIgnore
     @Size(max = 1, message = "status Name is too long")
     private String status;
     @NotNull(message = "password is required")
-    private Long password;
+    private String password;
 
 }

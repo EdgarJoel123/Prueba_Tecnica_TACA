@@ -25,7 +25,7 @@ public class CustomerEntity {
     private String status;
 
     @Column(name = "person_id", insertable = false, updatable = false)
-    private String person_id;
+    private Long person_id;
 
     @ManyToOne
     @JoinColumn(name = "person_id", nullable = false)
