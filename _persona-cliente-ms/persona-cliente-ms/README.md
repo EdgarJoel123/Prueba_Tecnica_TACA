@@ -80,6 +80,8 @@ Using generated security password: c0f65300-9261-4239-bff1-b09857937efa
 Accede en: http://localhost:8089/personCustomer/login
 
 Opcion 3 con docker:
+./gradlew :persona-cliente-ms-services:bootJar
+docker-compose up --build
 ./gradlew :persona-cliente-ms-services:clean :persona-cliente-ms-services:build
 
 
